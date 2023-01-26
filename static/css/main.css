@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.content {
+    border-radius:5px;
+    margin: 0 auto;
+    width: 400px;
+    background-color: rgb(252, 219, 234);
+}
+
+table, td, th {
+    border: 1px solid #320e61;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    height: 30px;
+}
+
+td {
+    text-align: center;
+    padding: 5px;
+}
+
+.form {
+    text-align: center;
+    margin-top: 15px;
+
+}
+
+#content {
+    width: 70%;
+}
+
+form input[type="submit"] {
+    background-color: #320e61; 
+    border: 1px solid #320e61;
+    border-radius:5px;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+    
+}
