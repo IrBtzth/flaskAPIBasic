@@ -2,6 +2,7 @@
 
 {% block head %}
 <title>Task Master</title>
+{{ share.load() }}
 {% endblock %}
 
 {% block body %}
@@ -37,4 +38,12 @@
         </form>
     </div>
 </div>
+<div>
+    <form action="//facebook.com/share" method="POST" >
+        <input type="submit" name="shareButton" value="Share">
+    </form>
+
+    
+</div>
+{{ share.create(title='Share with: ') }}
 {% endblock %}

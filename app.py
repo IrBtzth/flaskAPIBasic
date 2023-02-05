@@ -1,8 +1,12 @@
 from flask import Flask, render_template, url_for, request,redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from flask_share import Share
 
+share = Share()
 app=Flask(__name__)
+share.init_app(app)
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 with app.app_context():
     db = SQLAlchemy(app)
@@ -17,6 +21,7 @@ class Todo(db.Model):
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
+
     if request.method == 'POST':
         task_content = request.form['content']
         new_task = Todo(content=task_content)
@@ -58,6 +63,21 @@ def update(id):
 
     else:
         return render_template('update.html', task=task)
+
+@app.route('//facebook.com/share', methods=['GET', 'POST'])
+def shareFB():
+    
+
+    if request.method == 'POST':
+
+        try:
+            db.session.commit()
+            return redirect('/')
+        except:
+            return 'There was an issue updating your task'
+
+    else:
+        return url_for('/facebook.com/share')
 
 
 if __name__ == "__main__":
